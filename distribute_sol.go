@@ -28,10 +28,10 @@ func distributeSOL(client *rpc.Client, pvtKeys []string, retries uint, wgrp *syn
 	fmt.Scanln(&amountToSendUserInput)
 
 	amountToSend = uint64(amountToSendUserInput * 1000000000)
-	if amountToSend <= 0 {
-		fmt.Println("Amount should be >= 0. Amount received:", amountToSend)
-		main()
-	}
+	// if amountToSend <= 0 {
+	// 	fmt.Println("Amount should be >= 0. Amount received:", amountToSend)
+	// 	wgrp.Done()
+	// }
 
 	var pubKeys []string
 	for _, key := range pvtKeys {
@@ -61,18 +61,18 @@ func distributeSOL(client *rpc.Client, pvtKeys []string, retries uint, wgrp *syn
 	var sendingWalletPub solana.PublicKey = solana.MustPublicKeyFromBase58(pubKeys[chosenSender.Wallet])
 	var sendingWalletPvt solana.PrivateKey = solana.MustPrivateKeyFromBase58(pvtKeys[chosenSender.Wallet])
 
-	bal, err := client.GetBalance(
-		context.TODO(),
-		sendingWalletPub,
-		rpc.CommitmentFinalized,
-	)
-	if err != nil {
-		panic(err)
-	}
-	if bal.Value == 0 {
-		fmt.Printf("Sender %s has %d SOL.\n\n", sendingWalletPub.String(), bal.Value)
-		main()
-	}
+	// bal, err := client.GetBalance(
+	// 	context.TODO(),
+	// 	sendingWalletPub,
+	// 	rpc.CommitmentFinalized,
+	// )
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// if bal.Value == 0 {
+	// 	fmt.Printf("Sender %s has %d SOL.\n\n", sendingWalletPub.String(), bal.Value)
+	// 	wgrp.Done()
+	// }
 
 	copy(pubKeys[chosenSender.Wallet:], pubKeys[chosenSender.Wallet+1:])
 	pubKeys[len(pubKeys)-1] = ""
