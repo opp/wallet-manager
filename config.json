@@ -1,0 +1,8 @@
+{
+    "rpc": "",
+    "receiver": {
+        "sol": "",
+        "token": ""
+    },
+    "retries": 3
+}
