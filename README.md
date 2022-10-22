@@ -4,8 +4,11 @@ Solana wallet manager. Made specfically for botters with a lot of burners.
 # usage / setup
 ### config.json
 rpc: input a valid, working RPC inside double quotes; preferably a non-rate limited RPC
+
 sol: input a correct SOL address to collect SOL to
+
 token: input a correct SOL address to collect tokens to
+
 retries: amount of times to retry a transaction; default 3
 
 ---
