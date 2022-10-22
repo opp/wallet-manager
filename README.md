@@ -40,7 +40,7 @@ shows the amount of tokens (NFTs) each wallet in `wallets.csv` has
 **note: this will also show empty token accounts in each wallet
 
 ### Transfer Tokens
-sends tokens from each wallet in `wallets.csv` to the SOL address in `token` from `config.json`
+sends tokens from each wallet in `wallets.csv` to the SOL address in `token` from `config.json`. this will also close the token account from the sending wallet in the same transaction (i.e. no empty token accounts are left behind)
 
 please make sure the SOL address in the `token` field is correct. the program will make you double check as well.
 
